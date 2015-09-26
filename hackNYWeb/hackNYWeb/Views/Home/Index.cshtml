@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form method="post" action=@Url.Action("getData", "Home")>
+    <p>Category</p>
+
+    <select name="category">
+        <option value="Math">Math</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Biology">Biology</option>
+    </select>
+
+
+    <p>Name/Equation:</p>
+    <input type="text" name="equation" value="" />
+    <input type="submit" value="Sign Up" />
+
+
+</form>
