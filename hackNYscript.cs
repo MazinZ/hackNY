@@ -1,27 +1,23 @@
+using UnityEngine;
+using System.Collections;
 using Vuforia;
 
 /* source: https://developer.vuforia.com/library/articles/Solution/How-To-Create-a-Simple-Cloud-Recognition-App-in-Unity */
 
+
 public class hackNYscript : MonoBehaviour, ICloudRecoEventHandler {
+	public ImageTargetBehaviour ImageTargetTemplate;
 	private CloudRecoBehaviour mCloudRecoBehaviour;
 	private bool mIsScanning = false;
 	private string mTargetMetadata = "";
-	private string mTargetName = "";
-	public ImageTargetBehaviour ImageTargetTemplate;
+	public string name;
+
+	public string fileName = "http://www.mazinzakaria.com/";
+	public Material standardMaterial;	
 	ObjReader.ObjData objData;
-	public string baseUrl = "http://www.mazinzakaria.com/";
-	public string fileName = "";
-	public Material standardMaterial;
 	string loadingText = "";
 	bool loading = false;
-	public string name = "";
-
-	void OnGUI () {
-		GUILayout.BeginArea (new Rect(10, 10, 400, 400));
-		GUILayout.Label (loadingText);
-		GUILayout.EndArea();
-	}
-
+	
 	IEnumerator Load () {
 		loading = true;
 		if (objData != null && objData.gameObjects != null) {
@@ -29,29 +25,29 @@ public class hackNYscript : MonoBehaviour, ICloudRecoEventHandler {
 				Destroy (objData.gameObjects[i]);
 			}
 		}
-		
 		objData = ObjReader.use.ConvertFileAsync (fileName, true, standardMaterial);
 		while (!objData.isDone) {
 			loadingText = "Loading... " + (objData.progress*100).ToString("f0") + "%";
-
+			if (Input.GetKeyDown (KeyCode.Escape)) {
+				objData.Cancel();
+				loadingText = "Cancelled download";
+				loading = false;
+				yield break;
+			}
 			yield return null;
 		}
-		fileName = "";
 		loading = false;
-		if (objData == null || objData.gameObjects == null) {
-			loadingText = "Error loading file";
-			yield return null;
-			yield break;
-		}
+
 		
-		loadingText = "";
-		GameObject userModel;
-		userModel = GameObject.Find(name);
+		loadingText = "Import completed";
+		
+		GameObject hand;
+		hand = GameObject.Find(name);
 		GameObject imgtarget;
 		imgtarget = GameObject.Find("ImageTarget");
 		
 		
-		userModel.transform.parent = imgtarget.transform;
+		hand.transform.parent = imgtarget.transform;
 
 	}
 
@@ -62,33 +58,38 @@ public class hackNYscript : MonoBehaviour, ICloudRecoEventHandler {
 			mCloudRecoBehaviour.RegisterEventHandler(this);
 		}
 	}
-
 	public void OnInitialized() {
+		Debug.Log ("Cloud Reco initialized");
 	}
-
+	
 	public void OnInitError(TargetFinder.InitState initError) {
 		Debug.Log ("Cloud Reco init error " + initError.ToString());
 	}
+	
 	public void OnUpdateError(TargetFinder.UpdateState updateError) {
 		Debug.Log ("Cloud Reco update error " + updateError.ToString());
 	}
 	
 	public void OnStateChanged(bool scanning) {
 		mIsScanning = scanning;
+		
 		if (scanning)
 		{
 			ObjectTracker tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
 			tracker.TargetFinder.ClearTrackables(false);
 		}
 	}
-
-
+	
 	public void OnNewSearchResult(TargetFinder.TargetSearchResult targetSearchResult) {
 		mTargetMetadata = targetSearchResult.MetaData;
-		mTargetName = targetSearchResult.TargetName;
-		mCloudRecoBehaviour.CloudRecoEnabled = false;
+		Debug.LogError (targetSearchResult.TargetName);
 		name = targetSearchResult.TargetName;
-		//Debug.LogError (mTargetName);
+		fileName = fileName + targetSearchResult.TargetName.ToString() + ".obj";
+		StartCoroutine (Load());
+
+
+		fileName = "http://www.mazinzakaria.com/";
+		mCloudRecoBehaviour.CloudRecoEnabled = false;
 
 		if (ImageTargetTemplate) {
 			ObjectTracker tracker = TrackerManager.Instance.GetTracker<ObjectTracker>();
@@ -96,15 +97,21 @@ public class hackNYscript : MonoBehaviour, ICloudRecoEventHandler {
 				(ImageTargetBehaviour)tracker.TargetFinder.EnableTracking(
 					targetSearchResult, ImageTargetTemplate.gameObject);
 		}
-		fileName = baseUrl + mTargetName + ".obj";
-		if (!loading) {
-			StartCoroutine (Load ());
+	}
+	
+	void OnGUI() {
+		GUILayout.Label (loadingText);
+		if (!mIsScanning) {
+			if (GUI.Button(new Rect(100,300,200,50), "Restart Scanning")) {
+				mCloudRecoBehaviour.CloudRecoEnabled = true;
+			}
 		}
-
 	}
 
 
 }
+
+
 
 
 
