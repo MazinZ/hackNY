@@ -1,0 +1,13 @@
+c:\users\trekele\documents\visual studio 2013\Projects\Mathematica\Mathematica\bin\Debug\Mathematica.exe.config
+c:\users\trekele\documents\visual studio 2013\Projects\Mathematica\Mathematica\bin\Debug\Mathematica.exe
+c:\users\trekele\documents\visual studio 2013\Projects\Mathematica\Mathematica\bin\Debug\Mathematica.pdb
+c:\users\trekele\documents\visual studio 2013\Projects\Mathematica\Mathematica\bin\Debug\Wolfram.NETLink.dll
+c:\users\trekele\documents\visual studio 2013\Projects\Mathematica\Mathematica\obj\Debug\Mathematica.csprojResolveAssemblyReference.cache
+c:\users\trekele\documents\visual studio 2013\Projects\Mathematica\Mathematica\obj\Debug\Mathematica.exe
+c:\users\trekele\documents\visual studio 2013\Projects\Mathematica\Mathematica\obj\Debug\Mathematica.pdb
+C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\bin\Debug\Mathematica.exe.config
+C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\obj\Debug\Mathematica.exe
+C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\obj\Debug\Mathematica.pdb
+C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\bin\Debug\Mathematica.exe
+C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\bin\Debug\Mathematica.pdb
+C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\bin\Debug\Wolfram.NETLink.dll

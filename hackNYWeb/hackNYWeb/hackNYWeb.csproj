@@ -55,6 +55,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Wolfram.NETLink">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Wolfram Research\Mathematica\10.2\SystemFiles\Links\NETLink\Wolfram.NETLink.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">

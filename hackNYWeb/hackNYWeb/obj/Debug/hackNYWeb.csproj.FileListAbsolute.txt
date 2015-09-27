@@ -16,3 +16,22 @@ c:\users\trekele\documents\visual studio 2013\Projects\hackNYWeb\hackNYWeb\bin\S
 c:\users\trekele\documents\visual studio 2013\Projects\hackNYWeb\hackNYWeb\obj\Debug\hackNYWeb.csprojResolveAssemblyReference.cache
 c:\users\trekele\documents\visual studio 2013\Projects\hackNYWeb\hackNYWeb\obj\Debug\hackNYWeb.dll
 c:\users\trekele\documents\visual studio 2013\Projects\hackNYWeb\hackNYWeb\obj\Debug\hackNYWeb.pdb
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\hackNYWeb.dll.config
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\hackNYWeb.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\hackNYWeb.pdb
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Helpers.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Mvc.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Razor.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Webpages.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Webpages.Razor.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Razor.xml
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Webpages.xml
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Webpages.Razor.xml
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Helpers.xml
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Mvc.xml
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\obj\Debug\hackNYWeb.csprojResolveAssemblyReference.cache
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\obj\Debug\hackNYWeb.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\obj\Debug\hackNYWeb.pdb
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\Wolfram.NETLink.dll
