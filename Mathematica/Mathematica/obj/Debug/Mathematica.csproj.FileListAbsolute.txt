@@ -11,3 +11,6 @@ C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\obj\Debug\Mathe
 C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\bin\Debug\Mathematica.exe
 C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\bin\Debug\Mathematica.pdb
 C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\bin\Debug\Wolfram.NETLink.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\bin\Debug\AWSSDK.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\bin\Debug\AWSSDK.pdb
+C:\Users\Trekele\Documents\GitHub\hackNY\Mathematica\Mathematica\obj\Debug\Mathematica.csprojResolveAssemblyReference.cache

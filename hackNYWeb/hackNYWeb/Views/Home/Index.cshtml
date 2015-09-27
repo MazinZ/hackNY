@@ -5,7 +5,11 @@
 
 <h2>Index</h2>
 
-<form method="post" action=@Url.Action("getData", "Home")>
+<?php 
+    echo "test";
+?>
+
+<form method="post" action=@Url.Action("getData", "Home") enctype="multipart/form-data">
     <p>Category</p>
 
     <select name="category">
@@ -13,13 +17,17 @@
         <option value="c">Chemistry</option>
         <option value="b">Biology</option>
     </select>
-
+    <br />
 
     <p>Name:</p>
     <input type="text" name="name" value="TestExe" />
+    <br />
 
     <p>Equation/Formula</p>
     <input type="text" name="equation" value="Sin[x+y]" />
+
+    <input type="file" name="file" id="file" />
+
     <input type="submit" value="Submit" />
 
 </form>

@@ -34,4 +34,6 @@ C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\System.Web.Mvc.
 C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\obj\Debug\hackNYWeb.csprojResolveAssemblyReference.cache
 C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\obj\Debug\hackNYWeb.dll
 C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\obj\Debug\hackNYWeb.pdb
-C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\Wolfram.NETLink.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\Newtonsoft.Json.dll
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\Newtonsoft.Json.xml
+C:\Users\Trekele\Documents\GitHub\hackNY\hackNYWeb\hackNYWeb\bin\SautinSoft.PdfFocus.dll
