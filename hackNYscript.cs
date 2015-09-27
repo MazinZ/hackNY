@@ -17,15 +17,34 @@ public class hackNYscript : MonoBehaviour, ICloudRecoEventHandler {
 	ObjReader.ObjData objData;
 	string loadingText = "";
 	bool loading = false;
+
+	public string materialName;
 	
 	IEnumerator Load () {
+		if (name [0] == 'M') {
+			ObjReader.use.scaleFactor = new Vector3 (20, 20, 20);
+
+		}
+		else if (name[0]=='C'){
+			ObjReader.use.scaleFactor = new Vector3 (1.5F, 1.5F, 1.5F);
+		}
+		else {
+			ObjReader.use.scaleFactor = new Vector3 (.09F, .09F, .09F);
+
+		}
 		loading = true;
 		if (objData != null && objData.gameObjects != null) {
 			for (var i = 0; i < objData.gameObjects.Length; i++) {
 				Destroy (objData.gameObjects[i]);
 			}
 		}
-		objData = ObjReader.use.ConvertFileAsync (fileName, true, standardMaterial);
+
+
+	
+		materialName = fileName + ".mtl";
+		Debug.LogError (materialName);
+
+		objData = ObjReader.use.ConvertFileAsync (fileName, true, standardMaterial );
 		while (!objData.isDone) {
 			loadingText = "Loading... " + (objData.progress*100).ToString("f0") + "%";
 			if (Input.GetKeyDown (KeyCode.Escape)) {
@@ -39,15 +58,21 @@ public class hackNYscript : MonoBehaviour, ICloudRecoEventHandler {
 		loading = false;
 
 		
-		loadingText = "Import completed";
-		
-		GameObject hand;
-		hand = GameObject.Find(name);
+		loadingText = "";
+
+
+		GameObject userModel ;
+		userModel = GameObject.Find(name);
 		GameObject imgtarget;
 		imgtarget = GameObject.Find("ImageTarget");
-		
-		
-		hand.transform.parent = imgtarget.transform;
+		//Debug.LogError(userModel.GetComponent<Renderer>().material);
+		//userModel.AddComponent<BoxCollider>();
+		//Debug.LogError(userModel.GetComponent<BoxCollider>().size.magnitude);
+
+		userModel.transform.parent = imgtarget.transform;
+
+		//imgtarget.transform.localScale += new Vector3 (80f, 80f, 80f);
+		//userModel.transform.localScale += new Vector3 (70f, 70f, 70f);
 
 	}
 
@@ -108,8 +133,22 @@ public class hackNYscript : MonoBehaviour, ICloudRecoEventHandler {
 		}
 	}
 
+	public void OnTrackingLost()
+	{
+		for (var i = 0; i < objData.gameObjects.Length; i++) {
+			Destroy (objData.gameObjects[i]);
+		}
+
+		Debug.LogError ("test");
+	}
+
+
 
 }
+
+
+
+
 
 
 
