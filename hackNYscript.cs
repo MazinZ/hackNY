@@ -12,21 +12,24 @@ public class hackNYscript : MonoBehaviour, ICloudRecoEventHandler {
 	private string mTargetMetadata = "";
 	public string name;
 
-	public string fileName = "http://www.mazinzakaria.com/";
+	public string fileName = "https://s3.amazonaws.com/hackny.springhurst/";
 	public Material standardMaterial;	
-	ObjReader.ObjData objData;
+	public ObjReader.ObjData objData;
 	string loadingText = "";
 	bool loading = false;
 
 	public string materialName;
 	
 	IEnumerator Load () {
-		if (name [0] == 'M') {
-			ObjReader.use.scaleFactor = new Vector3 (20, 20, 20);
+		if (name [0] == 'm') {
+			ObjReader.use.scaleFactor = new Vector3 (40F, 40F, 40F);
+			ObjReader.use.objRotation = new Vector3 (-70F, 0F, 0F);
+			Debug.Log("MATH DETECTED SHRINKING");
 
 		}
-		else if (name[0]=='C'){
-			ObjReader.use.scaleFactor = new Vector3 (1.5F, 1.5F, 1.5F);
+		else if (name[0]=='c'){
+			ObjReader.use.scaleFactor = new Vector3 (.9F, .9F, .9F);
+			Debug.Log("CHEMISTRY DETECTED");
 		}
 		else {
 			ObjReader.use.scaleFactor = new Vector3 (.09F, .09F, .09F);
@@ -42,7 +45,7 @@ public class hackNYscript : MonoBehaviour, ICloudRecoEventHandler {
 
 	
 		materialName = fileName + ".mtl";
-		Debug.LogError (materialName);
+		//Debug.LogError (materialName);
 
 		objData = ObjReader.use.ConvertFileAsync (fileName, true, standardMaterial );
 		while (!objData.isDone) {
@@ -107,13 +110,13 @@ public class hackNYscript : MonoBehaviour, ICloudRecoEventHandler {
 	
 	public void OnNewSearchResult(TargetFinder.TargetSearchResult targetSearchResult) {
 		mTargetMetadata = targetSearchResult.MetaData;
-		Debug.LogError (targetSearchResult.TargetName);
+		Debug.Log (targetSearchResult.TargetName);
 		name = targetSearchResult.TargetName;
 		fileName = fileName + targetSearchResult.TargetName.ToString() + ".obj";
 		StartCoroutine (Load());
 
 
-		fileName = "http://www.mazinzakaria.com/";
+		fileName = "https://s3.amazonaws.com/hackny.springhurst/";
 		mCloudRecoBehaviour.CloudRecoEnabled = false;
 
 		if (ImageTargetTemplate) {
@@ -127,20 +130,12 @@ public class hackNYscript : MonoBehaviour, ICloudRecoEventHandler {
 	void OnGUI() {
 		GUILayout.Label (loadingText);
 		if (!mIsScanning) {
-			if (GUI.Button(new Rect(100,300,200,50), "Restart Scanning")) {
+			if (GUI.Button(new Rect(Screen.width / 10F,Screen.height / 10F,(Screen.width - (Screen.width / 10F)),(Screen.height / 10F)), "New Scan")) {
 				mCloudRecoBehaviour.CloudRecoEnabled = true;
 			}
 		}
 	}
-
-	public void OnTrackingLost()
-	{
-		for (var i = 0; i < objData.gameObjects.Length; i++) {
-			Destroy (objData.gameObjects[i]);
-		}
-
-		Debug.LogError ("test");
-	}
+	
 
 
 
